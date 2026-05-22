@@ -15,17 +15,6 @@ import socket
 s=socket.socket() 
 host='127.0.0.1'
 port=8080
-s.connect((host,port)) 
-while True:
-    print(s.recv(1024).decode())
-    s.send("Dialogue Completed.".encode())
-```
-### CLIENT.PY
-```
-import socket 
-s=socket.socket() 
-host='127.0.0.1'
-port=8080
 s.bind((host,port)) 
 s.listen(5) 
 c,addr=s.accept()
@@ -39,6 +28,17 @@ while True:
     else: 
         c.close() 
         break
+```
+### CLIENT.PY
+```
+import socket 
+s=socket.socket() 
+host='127.0.0.1'
+port=8080
+s.connect((host,port)) 
+while True:
+    print(s.recv(1024).decode())
+    s.send("Dialogue Completed.".encode())
 ```
 ## OUTPUT
 ### SERVER.PY
